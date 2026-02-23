@@ -3,276 +3,1262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Árvore de Links - ARTIFICIALL</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ARTIFICIALL | Ecossistema Premium de Inteligência Artificial</title>
+    <meta name="description" content="Acesse os modelos de IA mais avançados do mundo (GPT-5, Claude 4, Gemini 3) em uma única plataforma. Agentes autônomos para escalar seu negócio.">
+    <meta name="keywords" content="Inteligência Artificial, GPT-5, Claude 4, Gemini 3, Agentes de IA, Automação, SaaS, IA para empresas">
+    <meta property="og:title" content="ARTIFICIALL | Ecossistema Premium de Inteligência Artificial">
+    <meta property="og:description" content="Transforme seu negócio com a plataforma de IA mais completa do mercado.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0A1128 0%, #121A33 100%);
+            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+        }
+
+        .gradient-cyan {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+        }
+
+        .card-gradient {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 201, 255, 0.2);
+        }
+
+        .card-gradient-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-gradient-hover:hover {
+            border-color: rgba(0, 201, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 201, 255, 0.1);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .plan-card {
+            background: rgba(10, 17, 40, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 201, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .plan-card.popular {
+            border-color: rgba(0, 201, 255, 0.6);
+            box-shadow: 0 0 40px rgba(0, 201, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .plan-card:hover {
+            border-color: rgba(0, 201, 255, 0.4);
+            box-shadow: 0 0 30px rgba(0, 201, 255, 0.15);
+        }
+
+        .ai-card {
+            background: rgba(10, 17, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 201, 255, 0.3);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 201, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ai-card:hover::before {
+            left: 100%;
+        }
+
+        .ai-card:hover {
+            border-color: rgba(0, 201, 255, 0.8);
+            box-shadow: 0 0 40px rgba(0, 201, 255, 0.25), inset 0 0 40px rgba(0, 201, 255, 0.05);
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(10, 17, 40, 0.9);
+        }
+        
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Smooth scroll reveal classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ai-card h3 {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 201, 255, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(0, 201, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 201, 255, 0.1);
+        }
+
+        .header {
+            background: rgba(10, 17, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 201, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 201, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00C9FF;
+            padding: 10px 24px;
+            border: 2px solid #00C9FF;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 201, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .table-premium {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(10, 17, 40, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 201, 255, 0.2);
+        }
+
+        .table-premium th {
+            background: rgba(0, 201, 255, 0.1);
+            border-bottom: 2px solid rgba(0, 201, 255, 0.2);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .table-premium td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 201, 255, 0.1);
+        }
+
+        .table-premium tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-premium tr:hover {
+            background: rgba(0, 201, 255, 0.05);
+        }
+
+        .savings-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .footer {
+            background: rgba(10, 17, 40, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 201, 255, 0.1);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 201, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 201, 255, 0.05) 0%, rgba(0, 114, 255, 0.05) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .agent-card {
+            background: rgba(10, 17, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 201, 255, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 201, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .agent-card:hover::before {
+            left: 100%;
+        }
+
+        .agent-card:hover {
+            border-color: rgba(0, 201, 255, 0.8);
+            box-shadow: 0 0 40px rgba(0, 201, 255, 0.25), inset 0 0 40px rgba(0, 201, 255, 0.05);
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, #0A1128 0%, #121A33 100%);
+        }
+
+        .agent-card h3 {
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .agent-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-item {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid rgba(0, 201, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            border-left-color: rgba(0, 201, 255, 1);
+            box-shadow: 0 0 20px rgba(0, 201, 255, 0.15);
+            transform: translateX(4px);
+        }
+
+        .implementation-step {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 201, 255, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .implementation-step:hover {
+            border-color: rgba(0, 201, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 201, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00C9FF 0%, #0072FF 100%);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .plan-card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <img src="Artificiall_Cor_Hor_FundoClaro_RGB.png" alt="ARTIFICIALL" class="logo-image">
+    <!-- Header -->
+    <header class="header">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 no-underline">
+                <img
+                    src="./Artificiall_Cor_Hor_FundoClaro_RGB.png"
+                    alt="ARTIFICIALL"
+                    class="h-10 w-auto drop-shadow-lg"
+                    loading="eager"
+                    decoding="async"
+                >
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#agents" class="text-gray-400 hover:text-white transition-colors">Agentes</a>
+                <a href="#features" class="text-gray-400 hover:text-white transition-colors">Recursos</a>
+                <a href="#plans" class="text-gray-400 hover:text-white transition-colors">Planos</a>
+                <a href="#cost-benefit" class="text-gray-400 hover:text-white transition-colors">Custo-Benefício</a>
+                <button class="btn-primary" onclick="window.open('https://artificiall.ai', '_blank')">LOGIN</button>
             </div>
-        </header>
+        </nav>
+    </header>
 
-        <main class="main-content">
-            <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="hero-badge">
-                    <span class="play-icon">▶</span>
-                    <span>ALL-IN-ONE</span>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side: Image -->
+                <div class="flex justify-center items-center order-2 lg:order-1">
+                    <img src="./assets/Pngps.png" alt="AI Character" class="max-w-full h-auto drop-shadow-2xl" style="max-height: 500px; object-fit: contain;">
                 </div>
-                <h1 class="hero-title">Tudo o que você precisa de IA, <span class="highlight">em um só lugar</span></h1>
-                <p class="hero-subtitle">As melhores IAs, os cursos mais práticos e a newsletter mais completa</p>
-            </section>
+                <!-- Right Side: Text -->
+                <div class="order-1 lg:order-2">
+                    <div class="inline-block mb-6 px-4 py-2 rounded-full bg-blue-600/20 text-blue-400 border border-blue-600/30 text-sm font-medium">
+                        ✨ Plataforma SaaS de Inteligência Artificial
+                    </div>
+                    <h1 class="hero-title text-left">
+                        Transforme seu negócio com <span class="text-gradient">Inteligência Artificial</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-8 leading-relaxed text-left">
+                        A ARTIFICIALL oferece as melhores soluções em IA para empresas que buscam inovação, eficiência e resultados extraordinários. Acesse modelos avançados, integrações poderosas e suporte especializado em uma única plataforma.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Main Links Section -->
-            <section class="links-section">
-                <!-- Nossas Soluções -->
-                <div class="link-card main-link">
-                    <button class="link-header" data-target="solucoes">
-                        <div class="link-content">
-                            <div class="link-icon">💼</div>
-                            <div class="link-text">
-                                <h3>Nossas Soluções</h3>
-                                <p>Explore nossas plataformas e serviços</p>
-                            </div>
+    <!-- AI Platforms Section -->
+    <section class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-cyan-600/5"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <div class="inline-block mb-6 px-4 py-2 rounded-full bg-blue-600/20 text-blue-400 border border-blue-600/30 text-sm font-medium">
+                    🚀 Ecossistema Completo de IA
+                </div>
+                <h2 class="text-5xl font-bold mb-6">Acesso aos <span class="text-gradient">melhores modelos de IA</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">Sua porta de entrada para um ecossistema completo de inteligência artificial de ponta. Todos os modelos mais avançados do mercado em uma única plataforma premium.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT 5</h3>
+                    <p class="text-gray-400">O modelo de linguagem mais avançado para raciocínio complexo e tarefas multimodais.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT 5.1</h3>
+                    <p class="text-gray-400">Versão melhorada com capacidades aprimoradas de raciocínio e compreensão contextual.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT 5.2</h3>
+                    <p class="text-gray-400">Última geração com otimizações de performance e precisão ainda maiores.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT 4.1</h3>
+                    <p class="text-gray-400">Alta performance e eficiência para aplicações empresariais e de grande escala.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT o4 mini</h3>
+                    <p class="text-gray-400">Versão otimizada para velocidade e baixo custo, ideal para tarefas rápidas.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT o3</h3>
+                    <p class="text-gray-400">Modelo de terceira geração, robusto e confiável para processamento de linguagem natural.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT o3 mini</h3>
+                    <p class="text-gray-400">Pequeno e rápido, perfeito para integrações em tempo real e dispositivos de borda.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Claude Opus 4.1</h3>
+                    <p class="text-gray-400">Modelo mais poderoso da família Claude com raciocínio avançado e análise profunda.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Claude Sonnet 4.5</h3>
+                    <p class="text-gray-400">Equilíbrio ideal entre inteligência e velocidade para aplicações empresariais.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Claude Haiku 4.5</h3>
+                    <p class="text-gray-400">Modelo leve e rápido, perfeito para tarefas simples e respostas instantâneas.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Gemini 3.0</h3>
+                    <p class="text-gray-400">Modelo multimodal de última geração do Google com capacidades avançadas.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Gemini Deep Research</h3>
+                    <p class="text-gray-400">Especializado em pesquisa profunda e análise complexa de informações.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Deepseek R1</h3>
+                    <p class="text-gray-400">Modelo de código aberto com foco em eficiência e desempenho em tarefas de codificação.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Perplexity Completo</h3>
+                    <p class="text-gray-400">Pacote completo de busca e resposta com fontes citadas e análise em tempo real.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">GPT Image</h3>
+                    <p class="text-gray-400">Geração e edição de imagens de alta fidelidade a partir de descrições textuais.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">VEO 3</h3>
+                    <p class="text-gray-400">Geração de vídeos de alta qualidade e longa duração a partir de texto.</p>
+                </div>
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">VEO 3.1</h3>
+                    <p class="text-gray-400">Versão melhorada com qualidade de vídeo ainda superior e controle aprimorado.</p>
+                </div>
+
+                <div class="ai-card">
+                    <h3 class="text-xl font-bold mb-2">Nano Banana Pró</h3>
+                    <p class="text-gray-400">Versão profissional com recursos avançados para geração de imagens premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agentes de IA Section -->
+    <section id="agents" class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-600/5 via-transparent to-blue-600/5"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <div class="inline-block mb-6 px-4 py-2 rounded-full bg-cyan-600/20 text-cyan-400 border border-cyan-600/30 text-sm font-medium">
+                    🤖 Automação Inteligente
+                </div>
+                <h2 class="text-5xl font-bold mb-6">Agentes de <span class="text-gradient">IA Autônomos</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">Sistemas inteligentes que trabalham 24/7 para automatizar processos complexos, tomar decisões independentes e impulsionar resultados extraordinários em sua empresa.</p>
+            </div>
+
+            <!-- O que são Agentes -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">O que são <span class="text-gradient">Agentes de IA?</span></h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Agentes de IA são sistemas autônomos baseados em inteligência artificial que podem realizar funções em várias etapas sem direção explícita. Diferente de automações tradicionais, os agentes de IA podem:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-bold text-xl mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Tomar decisões independentes</strong> baseadas em contexto e dados</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-bold text-xl mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Adaptar-se a novos cenários</strong> sem reprogramação</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-bold text-xl mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Interagir com seu ambiente</strong> de forma proativa</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-bold text-xl mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Utilizar múltiplas ferramentas</strong> para resolver problemas</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-bold text-xl mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Aprender e melhorar</strong> continuamente com o tempo</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-cyan-600/10 to-blue-600/10 border-2 border-cyan-600/30 rounded-2xl p-8">
+                    <h4 class="text-xl font-bold mb-4 text-cyan-400">Diferencial Competitivo</h4>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed">
+                        "Diferente de automação de processos tradicionais, que respondem apenas a comandos, os agentes de IA podem executar processos completos e interagir de maneira proativa."
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                            <span class="text-gray-300">Ganhos de até <strong>40% em produtividade</strong> (McKinsey)</span>
                         </div>
-                        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                            <span class="text-gray-300">Redução significativa de <strong>custos operacionais</strong></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                            <span class="text-gray-300">Disponibilidade <strong>24/7</strong> sem paradas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefícios -->
+            <div class="mb-20">
+                <h3 class="text-3xl font-bold mb-12 text-center">Benefícios para <span class="text-gradient">Empresas e Profissionais</span></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="benefit-item">
+                        <h4 class="text-xl font-bold text-cyan-400 mb-3">📈 Aumento de Produtividade</h4>
+                        <p class="text-gray-300">Automação de tarefas repetitivas liberando tempo para atividades estratégicas. Estudos apontam ganhos de até 40% em setores como atendimento e operações.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4 class="text-xl font-bold text-cyan-400 mb-3">💰 Redução de Custos</h4>
+                        <p class="text-gray-300">Eliminação de despesas com processamento manual e redução de erros operacionais. ROI comprovado em menos de 6 meses.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4 class="text-xl font-bold text-cyan-400 mb-3">⏰ Disponibilidade 24/7</h4>
+                        <p class="text-gray-300">Agentes trabalhando continuamente sem pausas, garantindo atendimento e processamento em tempo real a qualquer hora.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4 class="text-xl font-bold text-cyan-400 mb-3">🎯 Precisão e Consistência</h4>
+                        <p class="text-gray-300">Eliminação de erros humanos e garantia de qualidade consistente em todos os processos automatizados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Casos de Uso -->
+            <div class="mb-20">
+                <h3 class="text-3xl font-bold mb-12 text-center">Casos de Uso em <span class="text-gradient">Diferentes Setores</span></h3>
+                <p class="text-gray-300 text-center mb-12 max-w-3xl mx-auto">Os agentes de IA podem ser aplicados em diversos setores e departamentos, trazendo eficiência e inovação:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border border-blue-600/20 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-blue-400 mb-3">💼 Vendas e Marketing</h4>
+                        <p class="text-gray-300 text-sm">Qualificação de leads, recomendação personalizada de produtos e automação de follow-ups.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-cyan-600/10 to-blue-600/10 border border-cyan-600/20 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-cyan-400 mb-3">🎧 Atendimento ao Cliente</h4>
+                        <p class="text-gray-300 text-sm">Resolução autônoma de problemas e atendimento 24/7 em múltiplos canais.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border border-blue-600/20 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-blue-400 mb-3">👥 Recursos Humanos</h4>
+                        <p class="text-gray-300 text-sm">Triagem de currículos, agendamento de entrevistas e onboarding automatizado.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-cyan-600/10 to-blue-600/10 border border-cyan-600/20 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-cyan-400 mb-3">💳 Finanças</h4>
+                        <p class="text-gray-300 text-sm">Análise de dados financeiros, detecção de fraudes e automação de relatórios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nossas Soluções -->
+            <div class="mb-20">
+                <h3 class="text-3xl font-bold mb-12 text-center">Nossas Soluções de <span class="text-gradient">Agentes de IA</span></h3>
+                <p class="text-gray-300 text-center mb-12 max-w-3xl mx-auto">Oferecemos um portfólio completo de soluções adaptáveis às necessidades específicas do seu negócio:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="agent-card">
+                        <h3>🤵 Assistente Executivo</h3>
+                        <p>Gerencia agendas, organiza reuniões, prioriza e-mails e prepara relatórios automaticamente.</p>
+                    </div>
+                    <div class="agent-card">
+                        <h3>🎧 Atendimento ao Cliente</h3>
+                        <p>Responde dúvidas, resolve problemas e encaminha casos complexos para humanos quando necessário.</p>
+                    </div>
+                    <div class="agent-card">
+                        <h3>📊 Análise de Dados</h3>
+                        <p>Processa grandes volumes de dados, identifica padrões e gera insights estratégicos para decisões.</p>
+                    </div>
+                    <div class="agent-card">
+                        <h3>💰 Agente de Vendas</h3>
+                        <p>Qualifica leads, personaliza abordagens e acompanha o funil de vendas de forma proativa.</p>
+                    </div>
+                    <div class="agent-card">
+                        <h3>🔧 Agente de Processos</h3>
+                        <p>Automatiza fluxos de trabalho complexos, integrando múltiplos sistemas e garantindo eficiência operacional.</p>
+                    </div>
+                    <div class="agent-card">
+                        <h3>⚙️ Personalizado</h3>
+                        <p>Desenvolvido especificamente para atender às necessidades únicas e específicas do seu negócio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementação -->
+            <div>
+                <h3 class="text-3xl font-bold mb-12 text-center">Processo de <span class="text-gradient">Implementação</span></h3>
+                <p class="text-gray-300 text-center mb-12 max-w-3xl mx-auto">Implementar agentes de IA em sua empresa é um processo estruturado e adaptável às suas necessidades:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="implementation-step">
+                        <div class="step-number">1</div>
+                        <h4 class="text-lg font-bold mb-2">Análise de Necessidades</h4>
+                        <p class="text-gray-300 text-sm">Identificação dos processos que mais se beneficiariam da automação inteligente.</p>
+                    </div>
+                    <div class="implementation-step">
+                        <div class="step-number">2</div>
+                        <h4 class="text-lg font-bold mb-2">Desenvolvimento Personalizado</h4>
+                        <p class="text-gray-300 text-sm">Criação de agentes específicos para suas necessidades de negócio.</p>
+                    </div>
+                    <div class="implementation-step">
+                        <div class="step-number">3</div>
+                        <h4 class="text-lg font-bold mb-2">Integração com Sistemas</h4>
+                        <p class="text-gray-300 text-sm">Conexão com suas ferramentas e plataformas existentes via APIs.</p>
+                    </div>
+                    <div class="implementation-step">
+                        <div class="step-number">4</div>
+                        <h4 class="text-lg font-bold mb-2">Treinamento e Ajustes</h4>
+                        <p class="text-gray-300 text-sm">Refinamento contínuo para melhorar a precisão e eficiência.</p>
+                    </div>
+                    <div class="implementation-step">
+                        <div class="step-number">5</div>
+                        <h4 class="text-lg font-bold mb-2">Monitoramento e Evolução</h4>
+                        <p class="text-gray-300 text-sm">Acompanhamento de desempenho e atualizações regulares.</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-center mt-8 text-sm italic">Nossos agentes são projetados para integração perfeita com sistemas ERP, CRM, e-commerce e plataformas de comunicação mais utilizados no mercado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 bg-gradient-to-br from-blue-600/5 to-cyan-600/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title">
+                    Tudo que você precisa para <span class="text-gradient">inovar com IA</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    Nossa plataforma oferece recursos completos para você integrar inteligência artificial em seus produtos e processos de forma simples e eficiente.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">🧠 IA Avançada</h3>
+                    <p class="text-gray-400">Acesso aos modelos mais avançados de inteligência artificial do mercado, incluindo GPT, Claude e Gemini.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">⚡ Performance Superior</h3>
+                    <p class="text-gray-400">Processamento ultrarrápido com infraestrutura otimizada para garantir respostas em tempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">🔒 Segurança Total</h3>
+                    <p class="text-gray-400">Seus dados protegidos com criptografia de ponta e conformidade com LGPD e regulamentações internacionais.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">🔗 Integrações Fáceis</h3>
+                    <p class="text-gray-400">API RESTful completa e SDKs para integração rápida com suas aplicações e sistemas existentes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">👥 Colaboração em Equipe</h3>
+                    <p class="text-gray-400">Gerencie múltiplos usuários, projetos e permissões em uma única plataforma centralizada.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold mb-3">📊 Analytics Detalhado</h3>
+                    <p class="text-gray-400">Dashboards completos com métricas de uso, performance e insights para otimizar seus resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title">
+                    Escolha o plano ideal para <span class="text-gradient">seu negócio</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    Oferecemos planos flexíveis que crescem com você. Todos incluem acesso à nossa plataforma de IA de última geração e suporte especializado.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Plano Grátis -->
+                <div class="plan-card">
+                    <div class="premium-badge" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Comece Agora</div>
+                    <h3 class="text-2xl font-bold mb-2">Grátis</h3>
+                    <p class="text-gray-400 mb-6">Para experimentar a plataforma</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">R$ 0</span>
+                        <span class="text-gray-400">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 font-bold">✓</span>
+                            <span class="text-sm">GPT O4</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 font-bold">✓</span>
+                            <span class="text-sm">Claude Haiku</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 font-bold">✓</span>
+                            <span class="text-sm">Deepseek</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 font-bold">✓</span>
+                            <span class="text-sm">Geração de Imagens (10/mês)</span>
+                        </li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="window.open('https://artificiall.ai', '_blank')">
+                        Criar Conta Grátis
                     </button>
-                    <div class="dropdown-menu" id="solucoes">
-                        <a href="https://artificiallcorporate.org" class="dropdown-item" target="_blank" rel="noopener noreferrer">
-                            <div class="dropdown-icon">🤖</div>
-                            <div class="dropdown-text">
-                                <strong>A Artificiall</strong>
-                                <span>Plataforma completa de IA</span>
-                            </div>
-                        </a>
-                        <a href="https://artificiallcorporate.org" class="dropdown-item" target="_blank" rel="noopener noreferrer">
-                            <div class="dropdown-icon">⚡</div>
-                            <div class="dropdown-text">
-                                <strong>Agentes de IA</strong>
-                                <span>Automação inteligente 24/7</span>
-                            </div>
-                        </a>
-                        <a href="https://artificiallcorporate.org/#plans" class="dropdown-item" target="_blank" rel="noopener noreferrer">
-                            <div class="dropdown-icon">📋</div>
-                            <div class="dropdown-text">
-                                <strong>Planos</strong>
-                                <span>Grátis, Básico, Premium e Pro</span>
-                            </div>
-                        </a>
-                        <div class="planos-preview">
-                            <p class="planos-preview-title">Nossos planos em destaque</p>
-                            <a href="https://artificiall.ai/verify-email" class="plano-mini-card plano-gratis" target="_blank" rel="noopener noreferrer">
-                                <span class="plano-nome">Grátis</span>
-                                <span class="plano-preco">R$ 0/mês</span>
-                                <span class="plano-features">GPT O4, Claude Haiku, Deepseek, Imagens (10/mês)</span>
-                                <span class="plano-cta">Criar conta grátis →</span>
-                            </a>
-                            <a href="https://artificiallcorporate.org/#plans" class="plano-mini-card" target="_blank" rel="noopener noreferrer">
-                                <span class="plano-nome">Básico</span>
-                                <span class="plano-preco">R$ 49,90/mês</span>
-                                <span class="plano-features">Midjourney, Canva, plataforma completa</span>
-                                <span class="plano-cta">Ver plano →</span>
-                            </a>
-                            <a href="https://artificiallcorporate.org/#plans" class="plano-mini-card plano-popular" target="_blank" rel="noopener noreferrer">
-                                <span class="plano-badge">Mais Popular</span>
-                                <span class="plano-nome">Premium</span>
-                                <span class="plano-preco">R$ 99,90/mês</span>
-                                <span class="plano-features">GPT Full, Gemini Full, Claude Opus, Perplexity</span>
-                                <span class="plano-cta">Ver plano →</span>
-                            </a>
-                            <a href="https://artificiallcorporate.org/#plans" class="plano-mini-card" target="_blank" rel="noopener noreferrer">
-                                <span class="plano-nome">Pro</span>
-                                <span class="plano-preco">R$ 149,90/mês</span>
-                                <span class="plano-features">Tudo + VEO 3, suporte dedicado</span>
-                                <span class="plano-cta">Ver plano →</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Comece Agora -->
-                <a href="https://artificiall.ai/verify-email" class="link-card cta-link" target="_blank" rel="noopener noreferrer">
-                    <div class="cta-badge">GRÁTIS</div>
-                    <div class="link-content">
-                        <div class="link-icon">🚀</div>
-                        <div class="link-text">
-                            <h3>Comece agora</h3>
-                            <p>Crie sua conta no Plano Gratuito e teste a plataforma</p>
-                        </div>
+                <!-- Plano Básico -->
+                <div class="plan-card">
+                    <h3 class="text-2xl font-bold mb-2">Básico</h3>
+                    <p class="text-gray-400 mb-6">Ideal para começar com IA</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">R$ 49,90</span>
+                        <span class="text-gray-400">/mês</span>
                     </div>
-                    <div class="cta-arrow">→</div>
-                </a>
-
-                <!-- Fale com nossa equipe -->
-                <div class="link-card main-link">
-                    <button class="link-header" data-target="contato">
-                        <div class="link-content">
-                            <div class="link-icon">💬</div>
-                            <div class="link-text">
-                                <h3>Fale com nossa equipe</h3>
-                                <p>Estamos aqui para ajudar</p>
-                            </div>
-                        </div>
-                        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Midjourney - Geração de imagens</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Canva - Design e edição</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Plataforma Artificiall completa</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">GPT-4o</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Gemini Flash</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Deepseek</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Sonar</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Sonar Reasoning</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Claude Haiku 4.5</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Suporte por email</span>
+                        </li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="window.open('https://clkdmg.site/subscribe/plataforma-basica', '_blank')">
+                        Assinar Plano
                     </button>
-                    <div class="dropdown-menu" id="contato">
-                        <a href="https://wa.me/553599958808?text=Gostaria%20de%20saber%20mais%20sobre%20a%20plataforma%2C%20vim%20pela%20%C3%81rvore%20de%20Links" class="dropdown-item" target="_blank" rel="noopener noreferrer">
-                            <div class="dropdown-icon">📱</div>
-                            <div class="dropdown-text">
-                                <strong>WhatsApp</strong>
-                                <span>Conversa rápida e direta</span>
-                            </div>
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mariana.comercial@artificiallcorporate.org&su=Contato%20-%20%C3%81rvore%20de%20Links&body=Ol%C3%A1!%0A%0AConheci%20a%20Plataforma%20pela%20Arvore%20de%20Links%20e%20gostaria%20de%20saber%20sobre%20Planos%2C%20Suporte%2C%20tudo%20que%20a%20plataforma%20pode%20oferecer." class="dropdown-item" target="_blank" rel="noopener noreferrer">
-                            <div class="dropdown-icon">✉️</div>
-                            <div class="dropdown-text">
-                                <strong>E-mail</strong>
-                                <span>Entre em contato pelo e-mail</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- AI Models Section -->
-            <section class="ai-models-section">
-                <div class="section-header">
-                    <div class="section-badge">
-                        <span class="play-icon">▶</span>
-                        <span>IAS DISPONÍVEIS</span>
-                    </div>
-                    <h2 class="section-title">Acesse os <span class="highlight">melhores modelos de IA</span> do mundo</h2>
                 </div>
 
-                <div class="ai-cards-grid">
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">GPT</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">GPT Full</h4>
-                        <p class="ai-description">Modelos mais avançados para raciocínio complexo e tarefas multimodais</p>
+                <!-- Plano Premium -->
+                <div class="plan-card popular">
+                    <div class="premium-badge">Mais Popular</div>
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <p class="text-gray-400 mb-6">Para profissionais e equipes</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">R$ 99,90</span>
+                        <span class="text-gray-400">/mês</span>
                     </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">★</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">Claude</h4>
-                        <p class="ai-description">Equilíbrio entre inteligência, velocidade e análise profunda</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">G</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">Gemini</h4>
-                        <p class="ai-description">Multimodal de última geração e pesquisa profunda</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">DS</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">Deepseek</h4>
-                        <p class="ai-description">Foco em eficiência e desempenho em codificação</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">S</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">Sonar</h4>
-                        <p class="ai-description">Busca e geração de conteúdo</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">SR</div>
-                            <div class="ai-badge">IA GENERATIVA</div>
-                        </div>
-                        <h4 class="ai-name">Sonar Reasoning</h4>
-                        <p class="ai-description">Raciocínio avançado</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🔍</div>
-                            <div class="ai-badge">IA PESQUISA</div>
-                        </div>
-                        <h4 class="ai-name">Perplexity Completo</h4>
-                        <p class="ai-description">Busca e resposta com fontes citadas e análise em tempo real</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🖼️</div>
-                            <div class="ai-badge">IMAGEM</div>
-                        </div>
-                        <h4 class="ai-name">GPT Image</h4>
-                        <p class="ai-description">Geração e edição de imagens de alta fidelidade</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🎨</div>
-                            <div class="ai-badge">IMAGEM</div>
-                        </div>
-                        <h4 class="ai-name">Midjourney</h4>
-                        <p class="ai-description">Geração de imagens de alta qualidade</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">✏️</div>
-                            <div class="ai-badge">DESIGN</div>
-                        </div>
-                        <h4 class="ai-name">Canva</h4>
-                        <p class="ai-description">Design e edição profissional</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🖼️</div>
-                            <div class="ai-badge">IMAGEM</div>
-                        </div>
-                        <h4 class="ai-name">Envato Freepik</h4>
-                        <p class="ai-description">BOT exclusivo para ilustrações e imagens premium</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🎬</div>
-                            <div class="ai-badge">VÍDEO</div>
-                        </div>
-                        <h4 class="ai-name">VEO 3 e VEO 3.1</h4>
-                        <p class="ai-description">Geração de vídeos de alta qualidade a partir de texto</p>
-                    </div>
-
-                    <div class="ai-card" style="--gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        <div class="ai-card-header">
-                            <div class="ai-logo">🚀</div>
-                            <div class="ai-badge">PLATAFORMA</div>
-                        </div>
-                        <h4 class="ai-name">Plataforma Artificiall</h4>
-                        <p class="ai-description">Todos os modelos avançados em uma única plataforma</p>
-                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Midjourney - Geração de imagens</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Canva - Design e edição</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Envato Freepik (BOT exclusivo)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Plataforma Artificiall completa</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">GPT Full (5, 5.1, 5.2, 4.1)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Gemini Full (3.0, Deep Research)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Claude Opus 4.1 e Sonnet 4.5</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Perplexity Completo</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Deepseek</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Suporte prioritário</span>
+                        </li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="window.open('https://clkdmg.site/subscribe/plataforma-premium', '_blank')">
+                        Assinar Plano
+                    </button>
                 </div>
-            </section>
-        </main>
+
+                <!-- Plano Pro -->
+                <div class="plan-card">
+                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                    <p class="text-gray-400 mb-6">Solução completa para criadores</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">R$ 149,90</span>
+                        <span class="text-gray-400">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Todas as ferramentas do Premium</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Midjourney - Geração de imagens</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Canva - Design e edição</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Envato Freepik (BOT exclusivo)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Geração de vídeo com IA (VEO 3 e VEO 3.1)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Plataforma Artificiall completa</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Todos os modelos avançados</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 font-bold">✓</span>
+                            <span class="text-sm">Suporte dedicado</span>
+                        </li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="window.open('https://clkdmg.site/subscribe/plataforma-pro', '_blank')">
+                        Assinar Plano
+                    </button>
+                </div>
+            </div>
+
+            <!-- Observação sobre Agentes de IA -->
+            <div class="mt-16 p-8 bg-gradient-to-br from-cyan-600/10 to-blue-600/10 border-2 border-cyan-600/30 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-400">⚠️ Importante: Contratação de Agentes de IA</h3>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    Os planos acima incluem <strong>apenas o acesso à plataforma ARTIFICIALL</strong> e aos modelos de IA disponíveis. Os <strong>Agentes de IA são contratados separadamente</strong> e requerem uma análise personalizada das suas necessidades de negócio.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Para solicitar um orçamento personalizado para implementação de Agentes de IA, clique no botão <strong>"Falar com Especialista"</strong> no topo ou rodapé da página e nosso time entrará em contato para entender suas necessidades e apresentar a melhor solução.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="btn-secondary" onclick="window.open('https://wa.me/5517933008970', '_blank')">
+                        Solicitar Orçamento de Agentes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost-Benefit Section -->
+    <section id="cost-benefit" class="py-20 px-4 bg-gradient-to-br from-blue-600/5 to-cyan-600/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Tenha todas as IAs em um só lugar</h2>
+                <p class="text-gray-400 text-lg">
+                    A ARTIFICIALL consolida o acesso às melhores ferramentas do mercado, eliminando a necessidade de múltiplas assinaturas caras. Veja a economia que você pode ter:
+                </p>
+            </div>
+
+            <div class="overflow-x-auto mb-8">
+                <table class="table-premium">
+                    <thead>
+                        <tr>
+                            <th>Ferramenta</th>
+                            <th class="text-right">Custo Médio de Mercado (R$)</th>
+                            <th class="text-right">Acesso com ARTIFICIALL (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Midjourney (Plano Pro)</td>
+                            <td class="text-right">300,00</td>
+                            <td class="text-right text-blue-400 font-semibold">Incluso</td>
+                        </tr>
+                        <tr>
+                            <td>Canva (Pro)</td>
+                            <td class="text-right">50,00</td>
+                            <td class="text-right text-blue-400 font-semibold">Incluso</td>
+                        </tr>
+                        <tr>
+                            <td>GPT 4o (Acesso Ilimitado)</td>
+                            <td class="text-right">150,00</td>
+                            <td class="text-right text-blue-400 font-semibold">Incluso</td>
+                        </tr>
+                        <tr>
+                            <td>Gemini Full (Acesso Ilimitado)</td>
+                            <td class="text-right">100,00</td>
+                            <td class="text-right text-blue-400 font-semibold">Incluso</td>
+                        </tr>
+                        <tr>
+                            <td>Deepseek R1 (Acesso)</td>
+                            <td class="text-right">80,00</td>
+                            <td class="text-right text-blue-400 font-semibold">Incluso</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">VEO 3 (Geração de Vídeo)</td>
+                            <td class="text-right font-bold">200,00</td>
+                            <td class="text-right text-blue-400 font-bold">Incluso (Plano Pro)</td>
+                        </tr>
+                        <tr style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);">
+                            <td class="font-bold text-lg">Custo Total Estimado</td>
+                            <td class="text-right font-bold text-lg">R$ 880,00</td>
+                            <td class="text-right font-bold text-lg text-blue-400">R$ 149,90 (Plano Pro)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="savings-box">
+                <h3 class="text-2xl font-bold text-green-400 mb-2">Economia de até R$ 730,10 por mês!</h3>
+                <p class="text-gray-300">
+                    Acesso a ferramentas de ponta por uma fração do custo. A ARTIFICIALL é a escolha inteligente.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="card-gradient rounded-xl p-12 text-center border-2">
+                <h2 class="text-4xl font-bold mb-6">
+                    Pronto para transformar seu negócio com <span class="text-gradient">IA</span>?
+                </h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    Junte-se a milhares de empresas que já estão usando a ARTIFICIALL para automatizar processos, aumentar produtividade e impulsionar resultados.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-primary" onclick="window.open('https://artificiall.ai', '_blank')">
+                        LOGIN →
+                    </button>
+                    <button class="btn-secondary" onclick="window.open('https://wa.me/5517933008970', '_blank')">
+                        Falar com Especialista
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4 flex items-center gap-2">
+                        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
+                            <!-- Background Circle -->
+                            <circle cx="50" cy="50" r="48" fill="url(#gradientBg)" opacity="0.9"/>
+                            <!-- Triangle Shape (A) -->
+                            <polygon points="50,20 70,70 30,70" fill="url(#gradientTriangle)"/>
+                            <!-- Inner Triangle -->
+                            <polygon points="50,35 62,60 38,60" fill="#0A1128" opacity="0.8"/>
+                            <defs>
+                                <linearGradient id="gradientBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00C9FF;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="gradientTriangle" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00F0FF;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0090FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="text-xl font-bold tracking-tighter text-gradient">ARTIFICIALL</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Soluções avançadas de Inteligência Artificial para empresas inovadoras.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-white">Produto</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-white transition-colors">Recursos</a></li>
+                        <li><a href="#plans" class="hover:text-white transition-colors">Planos</a></li>
+                        <li><a href="https://artificiall.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Plataforma</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-white">Empresa</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre</a></li>
+                        <li><a href="#" onclick="openContactForm(event)" class="hover:text-white transition-colors cursor-pointer">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 text-white">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a></li>
+                        <li><a href="termos-reembolso.html" class="hover:text-white transition-colors">Termos de Uso e Política de Reembolso</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-600/20 pt-8">
+                <div class="flex justify-center items-center gap-6 mb-8">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/artificiall-ltda/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.81 0-9.728h3.554v1.375c.427-.659 1.191-1.595 2.897-1.595 2.117 0 3.704 1.385 3.704 4.362v5.586zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.706 0-.955.768-1.703 1.959-1.703 1.188 0 1.914.748 1.939 1.703 0 .948-.751 1.706-1.983 1.706zm1.581 11.597H3.635V9.724h3.283v10.728zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    </a>
+                </div>
+                <div class="text-center text-sm text-gray-400">
+                    <p>© 2025 ARTIFICIALL. Todos os direitos reservados.</p>
+                    <a href="linktree.html" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:auto;" tabindex="-1" aria-hidden="true">.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Formulário de Contato -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div class="bg-gradient-to-br from-blue-900 to-slate-900 rounded-2xl p-8 max-w-md w-full border-2 border-blue-600/30">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-white">Fale Conosco</h2>
+                <button onclick="closeContactForm()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <form id="contactForm" action="https://formsubmit.co/artificiall@artificiall.ai" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Nome</label>
+                    <input type="text" name="nome" required class="w-full px-4 py-2 bg-slate-800 border border-blue-600/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400" placeholder="Seu nome">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-2 bg-slate-800 border border-blue-600/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400" placeholder="seu@email.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Telefone</label>
+                    <input type="tel" name="telefone" class="w-full px-4 py-2 bg-slate-800 border border-blue-600/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400" placeholder="(17) 9 3300-8970">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Assunto</label>
+                    <select name="assunto" class="w-full px-4 py-2 bg-slate-800 border border-blue-600/30 rounded-lg text-white focus:outline-none focus:border-blue-400">
+                        <option value="">Selecione um assunto</option>
+                        <option value="Duvidas sobre planos">Dúvidas sobre planos</option>
+                        <option value="Contratacao de agentes">Contratação de agentes</option>
+                        <option value="Suporte tecnico">Suporte técnico</option>
+                        <option value="Parceria">Parceria</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Mensagem</label>
+                    <textarea name="mensagem" required rows="4" class="w-full px-4 py-2 bg-slate-800 border border-blue-600/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 resize-none" placeholder="Sua mensagem..."></textarea>
+                </div>
+                
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://artificiallcorporate.org">
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300">
+                    Enviar Mensagem
+                </button>
+            </form>
+            
+            <div id="successMessage" class="hidden mt-4 p-4 bg-green-600/20 border border-green-600/50 rounded-lg text-green-400 text-center">
+                ✓ Mensagem enviada com sucesso! Entraremos em contato em breve.
+            </div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function openContactForm(e) {
+            e.preventDefault();
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContactForm() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('contactForm').reset();
+            document.getElementById('successMessage').classList.add('hidden');
+        }
+        
+        function handleContactForm(e) {
+            // FormSubmit.co vai lidar com o envio
+            // Apenas mostramos a mensagem de sucesso
+            document.getElementById('contactForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+            setTimeout(() => {
+                closeContactForm();
+            }, 3000);
+        }
+        
+        // Fechar modal ao clicar fora
+        document.getElementById('contactModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactForm();
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            const sr = ScrollReveal({
+                distance: '60px',
+                duration: 2000,
+                delay: 200,
+                reset: false
+            });
+
+            sr.reveal('.hero-content', { origin: 'left' });
+            sr.reveal('.hero-image', { origin: 'right', delay: 400 });
+            sr.reveal('.ai-card', { interval: 100, origin: 'bottom' });
+            sr.reveal('.agent-card', { interval: 200, origin: 'bottom' });
+            sr.reveal('.plan-card', { interval: 200, scale: 0.85 });
+            sr.reveal('.section-title', { origin: 'top' });
+        });
+    </script>
 </body>
 </html>
+
